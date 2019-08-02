@@ -1,0 +1,14 @@
+---
+- name: Install Apache from an MSI 
+  hosts: all 
+ 
+  tasks:
+    - name: Download the Apache installer
+      win_get_url:
+        url: 'http://xxxx.msi'
+        dest: 'C:\Users\Administrator\Downloads\xxxxxx.msi'
+
+    - name: Install MSI
+      win_package: 
+        path: 'C:\Users\Administrator\Downloads\xxxx.msi'
+        state: present
